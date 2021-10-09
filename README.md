@@ -1,6 +1,8 @@
 # UiShell
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.2.5.
+`ng add @angular-architects/module-federation --project shell --port 5000`
+
 
 ## Development server
 
