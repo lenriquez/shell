@@ -1,0 +1,110 @@
+.best-vision {
+  display: block;
+  color: #6aa84f;
+}
+
+.worst-vision {
+  display: block;
+  color: #cc0000;
+}
+
+.problem-message {
+  border-bottom: 1px solid black;
+
+  .problem-icd {
+    font-weight: 700;
+  }
+}
+
+.vf-alert-error {
+  background-color: #f78a8a;
+}
+
+.vf-alert-warning {
+  background-color: #ffe5ce;
+}
+
+.diagnostic-test-time-since-threshold-alert-error {
+  background-color: #f78a8a;
+}
+
+.diagnostic-test-time-since-threshold-alert-warning {
+  background-color: #ffe5ce;
+}
+
+.future-appointment {
+  color: #999999;
+}
+
+.all-iops {
+  display: flex;
+  flex-direction: row;
+  top: auto !important;
+  position: relative !important;
+
+  .iop-value {
+    margin: 2px;
+  }
+}
+
+.elevated-iop {
+  background-color: #ffe5ce;
+  color: #ff7e30;
+}
+
+.elevated-iop-high {
+  background-color: #f78a8a;
+  color: #ff0000;
+}
+
+.frequent-injection {
+  background-color: #f78a8a;
+  color: #ff0000;
+}
+
+.background-turquoise {
+  background: linear-gradient(to bottom, white 75%, turquoise 82%);
+}
+
+.background-yellow {
+  background: linear-gradient(to bottom, white 75%, yellow 82%);
+}
+
+.background-dark-blue {
+  background: linear-gradient(to bottom, white 75%, darkblue 82%);
+}
+
+.background-orange {
+  background: linear-gradient(to bottom, white 75%, orange 82%);
+}
+
+.background-purple {
+  background: linear-gradient(to bottom, white 75%, purple 82%);
+}
+
+.background-white {
+  background: linear-gradient(to bottom, white 75%, grey, white 85%);
+}
+
+.background-pink {
+  background: linear-gradient(to bottom, white 75%, pink 82%);
+}
+
+.background-light-green {
+  background: linear-gradient(to bottom, white 75%, lightgreen 82%);
+}
+
+.background-dark-green {
+  background: linear-gradient(to bottom, white 75%, darkgreen 82%);
+}
+
+.background-milk {
+  background: linear-gradient(to bottom, white 75%, #dcd9cd 82%);
+}
+.background-red {
+  background: linear-gradient(to bottom, white 75%, red 82%);
+}
+
+.background-gray {
+  background: linear-gradient(to bottom, white 75%, Gray 82%);
+}

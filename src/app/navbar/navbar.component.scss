@@ -1,0 +1,72 @@
+@import '../../scss/eccTheme';
+
+:host ::ng-deep p-autoComplete.search {
+  border-radius: 50px;
+  width: 400px;
+  padding: 0;
+
+  input.p-inputtext {
+    border-color: white;
+    border-radius: 50px;
+    padding: 5px 13px;
+    width: 398px;
+    &:enabled:focus,
+    &:enabled:hover {
+      border-color: white;
+    }
+  }
+
+  i.p-autocomplete-loader {
+    margin: -8px;
+  }
+
+  &.loader i.p-autocomplete-loader {
+    display: none;
+  }
+
+  ::ng-deep .p-autocomplete-panel {
+    width: 450px;
+  }
+
+  @media screen and (max-width: $break-medium) {
+    width: 90%;
+  }
+}
+
+.search-wrapper {
+  flex-grow: 1;
+}
+
+#nav-wrapper:not(.show) {
+  .nav-item {
+    .dropdown-menu.user-menu {
+      right: 4px;
+      left: initial;
+    }
+  }
+}
+
+.notification-icon {
+  .icon {
+    color: white;
+  }
+}
+
+#tasks {
+  color: #16181b;
+}
+
+.navbar-collapse {
+  a.nav-item {
+    max-height: 31px;
+  }
+}
+
+nav {
+  max-height: 54px;
+}
+
+.logo {
+  height: 50px;
+  margin-right: 10px;
+}

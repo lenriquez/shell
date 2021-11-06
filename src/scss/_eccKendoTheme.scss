@@ -1,0 +1,75 @@
+@import './sizeVariables';
+
+$grid-header-bg: #ffffff;
+$grid-border: #dddddd;
+$grid-header-border: #dddddd;
+$grid-header-text: #6b6b6b;
+
+kendo-grid.k-grid.k-widget {
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-bottom: none;
+
+  font-size: 0.8rem;
+
+  .no-padding {
+    padding: 0 !important;
+  }
+
+  .k-grid-aria-root {
+    border-top: none;
+  }
+
+  .k-grid-header {
+    border-top: none;
+    border-bottom-width: 1px;
+
+    th {
+      padding: 4px;
+      min-width: 40px;
+
+      @media screen and (max-width: $break-small) {
+        padding: 0;
+      }
+    }
+
+    tr:first-child {
+      th:last-child {
+        white-space: nowrap;
+      }
+    }
+
+    .k-header {
+      text-align: center;
+      overflow-wrap: break-word;
+      word-break: normal;
+      word-wrap: break-word;
+      vertical-align: middle;
+      text-overflow: initial;
+      white-space: normal;
+      font-weight: 600;
+    }
+  }
+
+  .k-grid-content,
+  .k-grid-content-locked {
+    td {
+      padding: 4px;
+      text-align: center;
+    }
+  }
+}
+
+.k-dropdown {
+  .k-dropdown-wrap {
+    .k-input {
+      background-color: white;
+      color: black;
+    }
+  }
+}
+
+.k-window-titlebar {
+  padding: 0.25rem 0.25rem !important;
+}

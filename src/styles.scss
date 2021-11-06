@@ -1,1 +1,163 @@
 /* You can add global styles to this file, and also import other style files */
+@import 'scss/eccTheme';
+@import 'scss/sizeVariables';
+@import '~bootstrap/scss/bootstrap.scss';
+@import '~bootstrap/scss/mixins';
+@import 'scss/_eccMaterialTheme';
+@import 'scss/_agGridTheme';
+@import 'scss/_ngbTheme';
+@import 'scss/indicators';
+
+// $icons-path: '~ag-grid-community/src/styles/ag-theme-base/icons/';
+// $ag-mat-icons-path: '~ag-grid-community/src/styles/ag-theme-material/icons/';
+@import '~@ag-grid-community/core/dist/styles/ag-grid.css';
+@import '~@ag-grid-community/core/dist/styles/ag-theme-bootstrap.css';
+@import '~@ag-grid-community/core/dist/styles/ag-theme-material.css';
+// @import '~ag-grid-community/dist/styles/ag-theme-balham.css';
+@import '~@ag-grid-community/core/dist/styles/ag-theme-material/sass/_ag-theme-material-mixin.scss';
+
+@import '../node_modules/@fortawesome/fontawesome-free/css/all.min.css';
+.ag-theme-material {
+  @include ag-theme-material(
+      (
+        checkbox-checked-color: #5e72dc,
+      )
+  );
+}
+
+@media screen and (max-width: $break-small) {
+  @font-face {
+    font-family: 'Arial';
+    src: unset;
+  }
+
+  .container-fluid {
+    padding-left: 3px;
+    padding-right: 3px;
+  }
+}
+
+// @media screen and(max-width:901px) {
+//   html {
+//     -moz-transform: scale(0.8, 0.8);
+//     zoom: 0.8;
+//     zoom: 80%;
+//   }
+// }
+
+// @media only screen and (min-resolution: 96dpi) and (max-resolution: 264dpi) and (min-width: 768px) and (max-width: 1024px),
+//   only screen and (-webkit-min-device-pixel-ratio: 1) and (-webkit-max-device-pixel-ratio: 2) and (min-width: 768px) and (max-width: 1024px) {
+//   html {
+//     -moz-transform: scale(0.8, 0.8);
+//     zoom: 0.8;
+//     zoom: 80%;
+//   }
+// }
+
+body {
+  padding-top: 60px;
+  font-family: Arial, sans-serif;
+}
+
+.cdk-overlay-container {
+  z-index: 11001; // class 'ui-dialog' is 11001
+
+  .black-backdrop + .cdk-global-overlay-wrapper {
+    z-index: 11003;
+    .inactivity-dialog-z-index {
+      z-index: 11004;
+    }
+  }
+
+  .black-backdrop {
+    background: rgba(0, 0, 0, 1);
+    z-index: 11002;
+  }
+}
+
+.ie-warning {
+  visibility: hidden;
+  background-color: rgb(221, 107, 107);
+  padding: 4px;
+  width: 450px;
+  line-height: 12px;
+  font-size: 0.8em;
+  font-weight: 700;
+  text-align: center;
+  vertical-align: middle;
+}
+
+html.no-smil {
+  /* IE/Edge specific styles go here - hide HTML5 content and show Flash content */
+  .ie-warning {
+    visibility: visible;
+  }
+}
+
+// #tooltip-ecc {
+// }
+
+#tooltip-ecc[data-show] {
+  visibility: visible;
+}
+
+.tooltip {
+  padding: 0.5rem 0.75rem;
+  color: #212529;
+  font-size: 13px;
+  border-radius: 4px;
+  background-color: white;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  position: absolute;
+  visibility: hidden;
+  z-index: 9999;
+  left: 0px;
+  top: 0px;
+}
+
+.tooltip-show {
+  padding: 0.5rem 0.75rem;
+  color: #212529;
+  font-size: 13px;
+  border-radius: 4px;
+  background-color: white;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  position: absolute;
+  visibility: visible;
+  z-index: 9999;
+  left: 0px;
+  top: 0px;
+}
+
+.tooltip-show-delay {
+  padding: 0.5rem 0.75rem;
+  color: #212529;
+  font-size: 13px;
+  border-radius: 4px;
+  background-color: white;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  position: absolute;
+  z-index: 9999;
+  left: 0px;
+  top: 0px;
+
+  @include transition(visibility 0s linear 500ms);
+}
+
+#arrow::before {
+  position: absolute;
+  background-color: white;
+  width: 8px;
+  height: 8px;
+  z-index: -1;
+  left: 50%;
+  top: 32px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-left: 0px;
+  border-top: 0px;
+}
+
+#arrow::before {
+  content: '';
+  transform: rotate(45deg);
+}

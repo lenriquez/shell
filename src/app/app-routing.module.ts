@@ -6,7 +6,9 @@ import {environment} from "../environments/environment.prod";
 const routes: Routes = [
   {
     path: '',
-    loadChildren: () => import('eccUi/Module').then(m => m.AppModule)
+    loadChildren: () => import('eccUi/Module').then(m => {
+      return m.AppModule
+    })
   },
 ];
 

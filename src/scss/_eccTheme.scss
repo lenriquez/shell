@@ -1,0 +1,86 @@
+$break-small: 320px;
+$break-medium: 650px;
+$break-large: 1024px;
+
+$primaryColor: #0b719e;
+$primaryDark: darken($primaryColor, 15%);
+$primaryLight: lighten($primaryColor, 50%);
+
+$lateralityOdColor: #be1d2c;
+$lateralityOdCellColor: lighten($lateralityOdColor, 50%);
+$lateralityOsColor: #0b719e;
+$lateralityOsCellColor: lighten($lateralityOsColor, 50%);
+
+$image-blue: #e6ecff;
+$image-green: #e1ffe1;
+
+$indicator-message-color: #98c298;
+
+$theme-colors: (
+  'primary': $primaryColor,
+);
+
+$font-size-base: 0.9rem;
+
+body {
+  background-color: #f4f6fc !important;
+}
+
+nav {
+  form {
+    input.search {
+      border-radius: 50px;
+    }
+  }
+
+  .nav-item {
+    cursor: pointer;
+
+    .dropdown-toggle {
+      padding: 5px 20px;
+      color: white;
+    }
+  }
+
+  .navbar-collapse {
+    justify-content: flex-end;
+  }
+
+  &.navbar-dark {
+    a.nav-link {
+      padding: 5px 20px;
+      border-radius: 50px;
+      color: white;
+    }
+
+    .nav-link.active {
+      background-color: $primaryDark;
+    }
+  }
+}
+
+.edit-text-icon {
+  position: absolute;
+  top: 5px;
+  right: 8px;
+  cursor: pointer;
+}
+
+.ecc-dropdown {
+  & button:first-child {
+    text-align: left;
+
+    fa-icon {
+      right: 20px;
+      position: absolute;
+    }
+
+    &::after {
+      display: none;
+    }
+  }
+}
+
+#tooltip-ecc div {
+  position: relative;
+}

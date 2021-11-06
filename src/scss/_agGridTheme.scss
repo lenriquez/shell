@@ -1,0 +1,173 @@
+@import './sizeVariables';
+@import './_eccTheme';
+
+$grid-header-bg: #ffffff;
+$grid-border: #dddddd;
+$grid-header-border: #dddddd;
+$grid-header-text: #6b6b6b;
+
+$odd-row-background-color: inherit;
+
+$font-family: Arial, sans-serif;
+
+// Temp hide watermark
+ag-grid-angular .ag-watermark {
+  display: none !important;
+}
+
+ag-grid-angular.ag-theme-bootstrap {
+  font-size: 0.82rem;
+
+  // To be removed and added to custom customer style sheet
+  .os-header {
+    border-bottom: 4px solid $lateralityOsColor !important;
+  }
+
+  .od-header {
+    border-bottom: 4px solid $lateralityOdColor !important;
+  }
+
+  .border-top-black {
+    border-top: 2px solid black !important;
+  }
+
+  .ag-row-even {
+    .laterality-od {
+      background-color: #f7eeee;
+      margin-top: 1px;
+      height: calc(100% - 2px);
+    }
+
+    .laterality-os {
+      background-color: #eeeef8;
+      margin-top: 1px;
+      height: calc(100% - 2px);
+    }
+  }
+
+  .ag-row-odd {
+    .laterality-od {
+      background-color: #f3d9d9;
+      margin-top: 1px;
+      height: calc(100% - 2px);
+    }
+
+    .laterality-os {
+      background-color: #dcdcf3;
+      margin-top: 1px;
+      height: calc(100% - 2px);
+    }
+  }
+
+  .ag-cell {
+    line-height: 15px;
+    font-weight: 600;
+  }
+
+  .ag-cell,
+  .ag-header-group-cell {
+    text-align: center;
+    border-color: $grid-border;
+    white-space: normal;
+  }
+
+  .ag-body-container .ag-cell,
+  .ag-cell {
+    padding: 0;
+  }
+
+  .ag-header-cell,
+  .ag-header-group-cell {
+    border: 1px solid $grid-border;
+    text-align: center;
+    font-weight: 600;
+    padding-left: 1px;
+    padding-right: 1px;
+  }
+
+  .ag-header {
+    font-size: 12px;
+  }
+
+  .ag-row .ag-cell,
+  .ag-header-row .ag-header-cell,
+  .ag-header-row .ag-header-group-cell {
+    border-width: 0 0 0 1px;
+  }
+
+  .ag-header-row .ag-header-cell:first-child,
+  .ag-header-row .ag-header-group-cell:first-child {
+    border-left-width: 0;
+  }
+
+  .ag-header-group-cell.ag-header-group-cell-with-group {
+    border-bottom-width: 1px !important;
+  }
+
+  .ag-header-cell-text,
+  .ag-header-group-text {
+    flex: 1;
+  }
+
+  .ag-root {
+    border: none;
+  }
+
+  .ag-header-cell-label {
+    width: 100%;
+  }
+
+  .whole-cell.field-wrapper {
+    height: 100%;
+    vertical-align: middle;
+  }
+
+  .font-xl {
+    font-size: 1.2em;
+  }
+
+  .font-l {
+    font-size: 1.1em;
+  }
+
+  .font-m {
+    font-size: 1em;
+  }
+
+  .font-s {
+    font-size: 0.9em;
+  }
+
+  .font-xs {
+    font-size: 0.8em;
+  }
+
+  .no-wrap {
+    white-space: nowrap;
+  }
+
+  .cell-border-right {
+    border-right: 1px solid rgb(63, 63, 63) !important;
+  }
+
+  .cell-border-left {
+    border-left: 1px solid rgb(63, 63, 63) !important;
+  }
+
+  .ag-center-cols-container .ag-row:nth-child(even) div.ag-cell:first-child {
+    font-size: 1em;
+  }
+}
+
+ag-grid-angular .k-grid-content,
+ag-grid-angular tr td,
+ag-grid-angular .k-grid-header-wrap {
+  overflow: visible;
+}
+
+.ag-row {
+  z-index: 0;
+  &.ag-row-focus {
+    z-index: 1;
+  }
+}

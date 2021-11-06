@@ -8,8 +8,4 @@ import { Router } from "@angular/router";
 })
 export class AppComponent {
   title = 'ui-shell';
-
-  constructor(private router: Router ) {
-    console.log(router);
-  }
 }

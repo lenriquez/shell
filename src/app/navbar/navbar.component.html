@@ -1,0 +1,134 @@
+<nav class="navbar navbar-expand-xl navbar-dark bg-primary fixed-top">
+  <img class="logo" src="/assets/header-logo.png" alt="logo" [title]="customerName">
+  <!-- <span *ngIf="customerName" class="navbar-brand mb-0 h1">{{
+    customerName
+  }}</span> -->
+
+  <div *ngIf="userLoggedIn | async" class="search-wrapper pull-left">
+    <form class="form-inline">
+      <p-autoComplete [ngClass]="{ loader: hideLoader }" class="form-control search" placeholder="Patient Search" field="displayName"
+                      [suggestions]="searchResults?.value || []" [type]="'search'" (onKeyUp)="onKeyPress($event)"
+                      (onSelect)="patientSelected($event)">
+        <ng-template let-dataItem pTemplate="item">
+          <div class="patient-search-item">
+            <span>{{ dataItem.displayName }}, DOB:
+              {{ dataItem.dateOfBirth | date: 'MM/dd/yyyy' }}, MRNO:
+              {{ dataItem.mrno }}</span>
+          </div>
+        </ng-template>
+      </p-autoComplete>
+    </form>
+  </div>
+
+  <div class="ie-warning">
+    We have detected you are using IE which not not a fully supported browser,
+    please change browsers to avoid issues.
+  </div>
+
+  <button *ngIf="userLoggedIn | async" class="navbar-toggler" type="button"
+          (click)="isNavbarCollapsed = !isNavbarCollapsed">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div *ngIf="userLoggedIn | async" id="nav-wrapper" [ngbCollapse]="isNavbarCollapsed" class="navbar-collapse">
+    <a [routerLink]="['/patient-list']" routerLinkActive="active" class="nav-item nav-link">Patients</a>
+
+    <a [routerLink]="['/task-list']" routerLinkActive="active" class="nav-item nav-link">Tasks</a>
+
+    <a [routerLink]="['/eod-review']" routerLinkActive="active" class="nav-item nav-link">Review</a>
+
+    <div class="nav-item">
+      <div ngbDropdown #mainMenu="ngbDropdown" autoClose="outside" class="d-inline-block">
+        <button class="btn btn-outline-primary" id="reports" ngbDropdownToggle>
+          Reporting
+        </button>
+        <div ngbDropdownMenu aria-labelledby="reports">
+          <button class="dropdown-item" [routerLink]="['/dynamic-reports']" [queryParams]="{clearState: true}"
+                  routerLinkActive="active">
+            Dynamic Reports
+          </button>
+          <button class="dropdown-item" [routerLink]="['/billing-reports']" [queryParams]="{clearState: true}"
+                  routerLinkActive="active">
+            Table Reports
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="nav-item">
+      <div ngbDropdown #mainMenu="ngbDropdown" autoClose="outside" class="d-inline-block">
+        <button class="btn btn-outline-primary" id="userMenu" ngbDropdownToggle>
+          Settings
+        </button>
+        <div ngbDropdownMenu aria-labelledby="userMenu" *ngIf="!!menuPermission">
+          <button class="dropdown-item" *ngIf="menuPermission[menu.USERS]" [routerLink]="['/user-list']"
+                  routerLinkActive="active">
+            User Management
+          </button>
+          <button class="dropdown-item" *ngIf="menuPermission[menu.ROLES]" [routerLink]="['/role-list']"
+                  routerLinkActive="active">
+            Role Management
+          </button>
+          <button class="dropdown-item" *ngIf="menuPermission[menu.CARRIERS]" [routerLink]="['/insurance-carriers']"
+                  routerLinkActive="active">
+            Insurance Management
+          </button>
+          <button class="dropdown-item" *ngIf="menuPermission[menu.BCODES]" [routerLink]="['/tracked-cpt-codes']"
+                  routerLinkActive="active">
+            Manage CPT Codes
+          </button>
+          <button class="dropdown-item" *ngIf="menuPermission[menu.POPERIODS]" [routerLink]="['/post-op-periods']"
+                  routerLinkActive="active">
+            Manage Post Op Periods
+          </button>
+          <button class="dropdown-item" [routerLink]="['/denial-code-managment']" routerLinkActive="active"
+                  (click)="mainMenu.close()">
+            Denial Code Management
+          </button>
+          <div ngbDropdown display="dynamic" placement="left">
+            <button class="dropdown-item" id="tasks" ngbDropdownToggle>
+              Manage Flowsheets
+            </button>
+            <div ngbDropdownMenu aria-labelledby="tasks">
+              <button class="dropdown-item" *ngIf="menuPermission[menu.BCODES]"
+                      [routerLink]="['/configure-code-groups']" routerLinkActive="active">
+                Configure Code Groups
+              </button>
+            </div>
+          </div>
+          <!-- Task Subsection -->
+          <div ngbDropdown display="dynamic" placement="left">
+            <button class="dropdown-item" id="tasks" ngbDropdownToggle>
+              Task
+            </button>
+            <div ngbDropdownMenu aria-labelledby="tasks">
+              <button class="dropdown-item" [routerLink]="['/manage-task-status']" routerLinkActive="active"
+                      (click)="mainMenu.close()">
+                Manage Task Status
+              </button>
+              <button class="dropdown-item" [routerLink]="['/manage-task-category']" routerLinkActive="active"
+                      (click)="mainMenu.close()">
+                Manage Task Category
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="nav-item">
+      <div ngbDropdown class="d-inline-block">
+        <button class="btn btn-outline-primary" id="userMenu" ngbDropdownToggle>
+          {{ usersName }} (Dr.)
+        </button>
+        <div ngbDropdownMenu aria-labelledby="userMenu">
+          <button class="dropdown-item" (click)="logout()">Logout</button>
+        </div>
+      </div>
+    </div>
+    <div class="notification-icon">
+      <fa-icon class="icon" [icon]="['fas', 'bell']"></fa-icon>
+      <mat-progress-bar *ngIf="notificationsIcon$ | async" style="height: 2px;" mode="indeterminate"></mat-progress-bar>
+    </div>
+  </div>
+</nav>
